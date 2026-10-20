@@ -1,0 +1,32 @@
+/** Diccionario central de ayuda contextual: [tooltip, ayuda ampliada, título]. Indexado por campo de 6.a. */
+export const AYUDA: Record<string, [
+    string,
+    string,
+    string
+]> = {
+    usuario: ['Correo con el que se le dio de alta en la plataforma.', 'Debe corresponder a una cuenta registrada del perfil seleccionado y a una tienda activa.', 'Correo electrónico'],
+    clave: ['Contraseña de 8 a 64 caracteres.', 'La contraseña inicial requiere letras y números. Ingrese la clave asignada a su cuenta.', 'Contraseña'],
+    rol: ['Comercio administra tienda, clientes y cobros. Cliente consulta su estado de cuenta.', 'El perfil Comercio tiene permisos de escritura y liquidación. El perfil Cliente ve solo sus operaciones, en lectura.', 'Rol de acceso'],
+    limite: ['Techo máximo de deuda que el negocio permite acumular a este cliente.', 'Si el capital original pendiente más la nueva compra supera este valor, se bloquea la venta. Los intereses y la mora no consumen línea adicional.', 'Línea de crédito'],
+    moneda: ['Moneda pactada para las transacciones del cliente.', 'Todas las ventas, intereses y abonos del cliente se liquidan en esta moneda.', 'Moneda'],
+    plazo: ['Máximo de cuotas mensuales que la tienda financia a este cliente.', 'Restringe la modalidad en cuotas por método francés. Entre 1 y 12 meses.', 'Plazo máximo'],
+    corte: ['Día en que cierra el ciclo de compras. Debe ser menor que la fecha de pago.', 'Las compras hasta esta fecha entran en el cobro del ciclo. Febrero satura al último día del mes.', 'Fecha de corte'],
+    pago: ['Día en que el cliente se compromete a cancelar toda su deuda exigible.', 'Pasado este día se calcula mora sobre el saldo vencido. No se admiten pagos parciales.', 'Fecha de pago'],
+    tipoC: ['Efectiva (TEA) si pacta el costo real anual; nominal (TNA) si pacta tasa con capitalización.', 'La TEA usa TED = (1 + TEA)^(1/360) − 1. La TNA exige indicar su capitalización, diaria o mensual.', 'Tipo de tasa compensatoria'],
+    valC: ['Porcentaje pactado por financiar al cliente dentro del plazo ordinario.', 'Se convierte a tasa diaria (TED) con precisión decimal y se muestra con al menos siete decimales porcentuales.', 'Tasa compensatoria'],
+    cap: ['Solo para tasa nominal: cada cuánto se capitaliza.', 'Diaria: TED = TNA / 360. Mensual: TEM = TNA / 12 y TED = (1 + TEM)^(1/30) − 1.', 'Capitalización'],
+    tipoM: ['Naturaleza de la tasa moratoria pactada.', 'Se aplica solo sobre el saldo exigible impago desde el día siguiente al vencimiento.', 'Tipo de tasa moratoria'],
+    valM: ['Tasa anual aplicable por los días de retraso.', 'Interés moratorio devengado a diario (TED mora), según el Art. 1242 del Código Civil.', 'Tasa moratoria'],
+    contado: ['Precio unitario cuando el cliente paga al momento.', 'Referencia para transparentar la diferencia con el precio de venta a crédito.', 'Precio contado'],
+    credito: ['Precio de lista a crédito. Es el capital financiado (P).', 'No puede ser menor al precio de contado. Es la base sobre la que se devengan intereses.', 'Precio de crédito'],
+    modalidad: ['Fin de mes, cuotas o ambas.', 'Restringe las modalidades de financiamiento habilitadas para el ítem según la política del negocio.', 'Modalidad permitida'],
+    cliente: ['Elija al cliente. Se muestra su línea disponible.', 'Al elegir cliente se cargan tasas, fechas de corte y pago, y su límite disponible.', 'Cliente'],
+    fecha: ['Fecha de entrega del producto o del servicio.', 'Define el ciclo (antes o después del corte) y los días ordinarios o de gracia a devengar.', 'Fecha de compra'],
+    modal: ['Un solo pago al vencimiento, o cuotas por método francés.', 'Fin de mes acumula el capital para la fecha de pago del ciclo. Cuotas genera un cronograma con gracia capitalizada.', 'Modalidad de pago'],
+    meses: ['Número de cuotas mensuales. No supera el plazo máximo del cliente.', 'Define n. Con más cuotas la cuota baja, pero el costo financiero total sube.', 'Número de meses'],
+    periodo: ['Ciclo mensual a consultar.', 'Incluye compras y cuotas pendientes hasta la fecha pactada del período o la fecha consultada, si es posterior, además de deudas anteriores.', 'Período'],
+    fechaReal: ['Fecha en que el cliente realiza el abono.', 'Si es posterior a la fecha pactada, se liquidan días de mora automáticamente.', 'Fecha real de pago'],
+    abono: ['Debe ser igual al total exigible.', 'El sistema no admite pagos parciales al vencimiento. El desglose sigue la prelación: mora, compensatorio y capital.', 'Monto abonado'],
+    capital: ['Capital financiado original (P).', 'Se capitaliza durante la gracia antes de calcular la cuota.', 'Capital'],
+    tea: ['Tasa efectiva anual pactada.', 'TEM = (1 + TEA)^(30/360) − 1 y TED = (1 + TEA)^(1/360) − 1, con al menos siete decimales.', 'TEA'],
+};

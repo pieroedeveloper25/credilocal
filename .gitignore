@@ -1,0 +1,14 @@
+node_modules/
+dist/
+servidor-dist/
+datos/
+pruebas/base-prueba-*/
+*.log
+
+.idea/
+.env
+.env.*
+!.env.example
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal

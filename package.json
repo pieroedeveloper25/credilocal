@@ -1,0 +1,32 @@
+{
+  "name": "credilocal-web",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build && node scripts/compilar-servidor.mjs",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "start": "node servidor-dist/main.mjs",
+    "test:api": "node --test pruebas/api.test.mjs",
+    "test:arquitectura": "node --test pruebas/arquitectura.test.mjs"
+  },
+  "dependencies": {
+    "decimal.js": "^10.4.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "^5.6.3",
+    "vite": "^6.0.0",
+    "vitest": "^2.1.8",
+    "esbuild": "0.25.12"
+  },
+  "engines": {
+    "node": ">=24.15.0"
+  }
+}
