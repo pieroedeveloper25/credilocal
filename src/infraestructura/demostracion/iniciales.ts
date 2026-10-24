@@ -1,6 +1,6 @@
 import { CLIENTES, PRODUCTOS } from './datos';
-import type { Datos } from '../../dominio/modelos';
-import { crearCuenta } from '../seguridad/credenciales';
+import { crearCuenta } from '../../contexts/identity-and-access/infraestructura/credenciales';
+import type { Datos } from '../../shared/dominio/datos';
 const VACIO: Datos = { tiendas: [], cuentas: [], clientes: [], productos: [], ventas: [], pagos: [], auditoria: [] };
 export async function iniciales(): Promise<Datos> {
     const cuentas = await Promise.all([

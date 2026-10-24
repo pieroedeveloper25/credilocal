@@ -1,14 +1,14 @@
 /** Punto de composición: conecta casos de uso con SQLite, seguridad y HTTP. */
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { relojPeru } from '../src/dominio/validaciones';
-import { emitirCortesPendientes } from '../src/aplicacion/cortes/emitirCorte';
-import { crearUnidadDeTrabajo } from '../src/aplicacion/unidadDeTrabajo';
 import { abrirBase } from '../src/infraestructura/persistencia/sqlite';
 import { iniciales } from '../src/infraestructura/demostracion/iniciales';
 import { normalizarFinanzas } from '../src/infraestructura/migracion/normalizarFinanzas';
-import { crearCuenta } from '../src/infraestructura/seguridad/credenciales';
 import { crearServidor } from '../src/infraestructura/http/crearServidor';
+import { emitirCortesPendientes } from '../src/contexts/billing-and-collections/aplicacion/emitirCorte';
+import { crearCuenta } from '../src/contexts/identity-and-access/infraestructura/credenciales';
+import { crearUnidadDeTrabajo } from '../src/shared/aplicacion/unidadDeTrabajo';
+import { relojPeru } from '../src/shared/dominio/fechas';
 export async function crearAplicacion(ruta = resolve('datos/credilocal.sqlite'), ahora: () => string = relojPeru) {
     const base = abrirBase(ruta);
     const trabajo = crearUnidadDeTrabajo(base);

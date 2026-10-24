@@ -1,6 +1,9 @@
-import { D, Decimal, convertirTasas, liquidarFinDeMes, parseFecha, resolverCiclo, type Liquidacion } from '../../dominio/credito/motor';
-import type { Cliente, Compra, Venta } from '../../dominio/modelos';
 import { COMPRAS } from '../demostracion/datos';
+import type { Compra, Venta } from '../../contexts/credit-origination/dominio/modelos';
+import { convertirTasas, liquidarFinDeMes, resolverCiclo, type Liquidacion } from '../../contexts/credit-origination/dominio/motor';
+import type { Cliente } from '../../contexts/customer-management/dominio/modelos';
+import { D, Decimal } from '../../shared/dominio/decimal';
+import { parseFecha } from '../../shared/dominio/fechas';
 export interface Linea extends Compra {
     n: number;
     r: Liquidacion;

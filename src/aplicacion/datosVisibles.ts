@@ -1,4 +1,5 @@
-import type { Datos, Sesion } from '../dominio/modelos';
+import type { Sesion } from '../contexts/identity-and-access/dominio/modelos';
+import type { Datos } from '../shared/dominio/datos';
 export const datosVisibles = (d: Datos, s: Sesion): Datos => {
     const propios = (x: {
         tiendaId?: number;

@@ -1,7 +1,7 @@
 import { useStore } from '../store';
-import { D } from '../../../dominio/credito/motor';
 import { num } from '../format';
 import { Head, Badge } from '../components/ui';
+import { D } from '../../../shared/dominio/decimal';
 export function Dashboard() {
     const { tienda, clientes, productos, ventas, pagos, deudaDe } = useStore();
     return <>
@@ -11,7 +11,7 @@ export function Dashboard() {
             const cs = clientes.filter(c => c.moneda === moneda);
             const deuda = cs.reduce((a, c) => a.plus(deudaDe(c)), D(0));
             const linea = cs.filter(c => c.activo !== false).reduce((a, c) => a.plus(c.limite), D(0));
-            return <section key={moneda} className="card"><h2>{moneda === 'PEN' ? 'Soles (PEN)' : 'Dólares (USD)'}</h2><p>Cartera: <b>{num(deuda)}</b></p><p>Línea autorizada activa: {num(linea)}</p><p>Clientes: {cs.length}</p></section>;
+            return <section key={moneda} className="card"><h2>{moneda === 'PEN' ? 'Soles (PEN)' : 'Dólares (USD)'}</h2><div className="kv"><span>Cartera</span><b className="num">{num(deuda)}</b></div><div className="kv"><span>Línea autorizada activa</span><span className="num">{num(linea)}</span></div><div className="kv"><span>Clientes</span><span className="num">{cs.length}</span></div></section>;
         })}
       <section className="card"><h2>Actividad registrada</h2><p>{clientes.filter(c => c.activo !== false).length} clientes activos</p><p>{productos.filter(p => p.activo !== false).length} productos activos</p><p>{ventas.length} ventas · {pagos.length} pagos</p></section>
     </div>

@@ -25,6 +25,6 @@
   "exclude": [
     "src/infraestructura/http",
     "src/infraestructura/persistencia/sqlite.ts",
-    "src/infraestructura/seguridad/sesiones.ts"
+    "src/contexts/identity-and-access/infraestructura/sesiones.ts"
   ]
 }

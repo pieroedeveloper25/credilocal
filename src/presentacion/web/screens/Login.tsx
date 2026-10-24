@@ -1,6 +1,6 @@
 import { useState } from 'react';
+import { ThemeToggle } from '../components/ThemeToggle';
 import { Logo } from '../components/Logo';
-import { Background } from '../components/Background';
 import { Tilt3D } from '../components/Tilt3D';
 import { Field, Seg, idx, tipId } from '../components/ui';
 import { ZapIcon, ShieldCheckIcon, ArrowUpRightIcon } from '../components/Icons';
@@ -49,7 +49,7 @@ export function Login() {
         setRol('Cliente');
     };
     return (<div className="login-wrap page">
-      <Background />
+      <div className="theme-corner"><ThemeToggle /></div>
       <div className="login-card rv" style={idx(0)}>
         {/* PANEL IZQUIERDO: Showcase Visual Fintech Automotriz */}
         <div className="login-showcase">

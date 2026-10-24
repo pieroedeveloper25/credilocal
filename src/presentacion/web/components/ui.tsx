@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
-import { D, Decimal } from '../../../dominio/credito/motor';
 import { num, sol } from '../format';
 import { AYUDA } from '../ayuda';
+import { D, Decimal } from '../../../shared/dominio/decimal';
 export const idx = (i: number): CSSProperties => ({ ['--i' as string]: i });
 export const tipId = (id: string) => `${id}-tip`;
 /** Campo con etiqueta, tooltip (capa 1) y panel de ayuda ampliada (capa 2). */

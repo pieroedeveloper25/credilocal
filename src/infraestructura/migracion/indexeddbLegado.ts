@@ -1,5 +1,6 @@
-import type { Cuenta, Datos, Rol } from '../../dominio/modelos';
-import { normalizarCorreo, exigir } from '../../dominio/validaciones';
+import type { Cuenta, Rol } from '../../contexts/identity-and-access/dominio/modelos';
+import type { Datos } from '../../shared/dominio/datos';
+import { exigir, normalizarCorreo } from '../../shared/dominio/validaciones';
 const hex = (b: ArrayBuffer | Uint8Array) => Array.from(new Uint8Array(b instanceof Uint8Array ? b.buffer : b)).map(x => x.toString(16).padStart(2, '0')).join('');
 export async function crearCuenta(correo: string, clave: string, rol: Rol, id: number, tiendaId?: number, clienteId?: number): Promise<Cuenta> {
     exigir(correo.trim().length >= 5 && correo.trim().length <= 100, 'El correo debe tener entre 5 y 100 caracteres.');

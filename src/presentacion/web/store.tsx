@@ -1,9 +1,14 @@
 import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from 'react';
-import { Decimal } from '../../dominio/credito/motor';
-import type { Cliente, Producto, Venta, Sesion, Datos, Pago, Rol, Tienda, Obligacion, ListadoCorte } from '../../dominio/modelos';
 import { useSesion } from './session';
-import { deudaLinea, liquidarObligaciones } from '../../dominio/credito/obligaciones';
 import { api } from './api';
+import type { ListadoCorte, Obligacion, Pago } from '../../contexts/billing-and-collections/dominio/modelos';
+import { deudaLinea, liquidarObligaciones } from '../../contexts/billing-and-collections/dominio/obligaciones';
+import type { Venta } from '../../contexts/credit-origination/dominio/modelos';
+import type { Cliente } from '../../contexts/customer-management/dominio/modelos';
+import type { Rol, Sesion, Tienda } from '../../contexts/identity-and-access/dominio/modelos';
+import type { Producto } from '../../contexts/product-catalog/dominio/modelos';
+import type { Datos } from '../../shared/dominio/datos';
+import { Decimal } from '../../shared/dominio/decimal';
 interface Store {
     listo: boolean;
     errorBase: string;

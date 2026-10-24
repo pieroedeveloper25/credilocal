@@ -1,6 +1,6 @@
 import type { ComponentType, ReactNode } from 'react';
 import { Logo } from './Logo';
-import { Background } from './Background';
+import { ThemeToggle } from './ThemeToggle';
 import { useSesion } from '../session';
 import { useStore } from '../store';
 import { CalendarIcon, CartIcon, CatalogIcon, CreditCardIcon, DashboardIcon, FileTextIcon, LogOutIcon, UsersIcon, } from './Icons';
@@ -32,7 +32,6 @@ export function Shell({ ruta, children }: {
     const { salir, sesion } = useSesion();
     const { tienda } = useStore();
     return (<div className="app">
-      <Background />
       <nav className="side" aria-label="Principal">
         <div className="brand">
           <Logo size={32}/>
@@ -42,14 +41,14 @@ export function Shell({ ruta, children }: {
           </div>
         </div>
 
-        <div style={{ padding: '0 2px 14px 2px' }}>
+        <div className="side-store">
           <div style={{ background: 'var(--sunken)', border: '1px solid var(--line-strong)', borderRadius: 12, padding: '10px 14px', fontSize: 12 }}>
             <div style={{ fontWeight: 700, fontSize: 13, color: 'var(--ink)' }}>{tienda?.nombre ?? 'Administración del sistema'}</div>
             <div className="sub" style={{ fontSize: 11, marginTop: 2 }}>{tienda ? `RUC: ${tienda.ruc} · ${tienda.giro}` : 'Gestión de múltiples tiendas'}</div>
           </div>
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+        <div className="side-links">
           {(sesion?.rol === 'Superadministrador' ? [{ ruta: 'tiendas', titulo: 'Gestión de tiendas', icon: UsersIcon }] : NAV_COMERCIO).map((it) => {
             const IconComp = it.icon;
             const activo = ruta === it.ruta;
@@ -66,7 +65,8 @@ export function Shell({ ruta, children }: {
             <span>Base 360 · Art. 1257 CC</span>
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <span style={{ fontWeight: 700, fontSize: 12, color: 'var(--muted)' }}>Rol: {sesion?.rol}</span>
+            <span style={{ fontWeight: 700, fontSize: 12, color: 'var(--muted)', flex: 1 }}>Rol: {sesion?.rol}</span>
+            <ThemeToggle />
             <a href="#/login" onClick={salir} className="btn sm" style={{ height: 30, fontSize: 12, padding: '0 12px', gap: 6, borderRadius: 999 }} aria-label="Cerrar sesión">
               <LogOutIcon size={14}/> Salir
             </a>
@@ -85,7 +85,6 @@ export function ShellCliente({ ruta, children }: {
     const { clientes } = useStore();
     const cl = clientes.find(c => c.id === sesion?.clienteId);
     return (<div className="app">
-      <Background />
       <nav className="side" aria-label="Principal">
         <div className="brand">
           <Logo size={32}/>
@@ -95,14 +94,14 @@ export function ShellCliente({ ruta, children }: {
           </div>
         </div>
 
-        <div style={{ padding: '0 2px 14px 2px' }}>
+        <div className="side-store">
           <div style={{ background: 'var(--sunken)', border: '1px solid var(--line-strong)', borderRadius: 12, padding: '10px 14px', fontSize: 12 }}>
             <div style={{ fontWeight: 700, fontSize: 13, color: 'var(--ink)' }}>{cl?.nombre ?? 'Cliente'}</div>
             <div className="sub" style={{ fontSize: 11, marginTop: 2 }}>{cl?.tipoDoc}: {cl?.doc}</div>
           </div>
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+        <div className="side-links">
           {NAV_CLIENTE.map((it) => {
             const IconComp = it.icon;
             const activo = ruta === it.ruta;
@@ -116,7 +115,8 @@ export function ShellCliente({ ruta, children }: {
         <div className="foot">
           <div style={{ marginBottom: 10, fontSize: 12, color: 'var(--muted)', fontWeight: 500 }}>Modo Consulta (Solo Lectura)</div>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <span style={{ fontWeight: 700, fontSize: 12, color: 'var(--muted)' }}>Rol: Cliente</span>
+            <span style={{ fontWeight: 700, fontSize: 12, color: 'var(--muted)', flex: 1 }}>Rol: Cliente</span>
+            <ThemeToggle />
             <a href="#/login" onClick={salir} className="btn sm" style={{ height: 30, fontSize: 12, padding: '0 12px', gap: 6, borderRadius: 999 }} aria-label="Cerrar sesión">
               <LogOutIcon size={14}/> Salir
             </a>

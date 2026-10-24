@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { useStore } from '../store';
-import { D, fmtFecha, imputarPorPrelacion, parseFecha, r2 } from '../../../dominio/credito/motor';
 import { leer, num, sol as dinero } from '../format';
-import { fechaPagoPeriodo } from '../../../dominio/credito/obligaciones';
 import { Badge, Field, Head, Money, PrelacionFlow, Tick, idx, tipId } from '../components/ui';
+import { imputarPorPrelacion } from '../../../contexts/billing-and-collections/dominio/prelacion';
+import { D, r2 } from '../../../shared/dominio/decimal';
+import { fechaPagoPeriodo, fmtFecha, parseFecha, relojPeru } from '../../../shared/dominio/fechas';
 export function Pago() {
     const { clientes, pagos, liquidarDe, registrarCobro } = useStore();
     const [ci, setCi] = useState(clientes[0]?.id ?? -1);
@@ -114,4 +115,3 @@ export function Pago() {
       </div>
     </>);
 }
-import { relojPeru } from '../../../dominio/validaciones';

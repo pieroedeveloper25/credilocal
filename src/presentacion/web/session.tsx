@@ -1,7 +1,7 @@
 import { createContext, useCallback, useContext, useMemo, useState, type ReactNode } from 'react';
 import { api } from './api';
-import type { Sesion } from '../../dominio/modelos';
-export type { Rol, Sesion } from '../../dominio/modelos';
+import type { Sesion } from '../../contexts/identity-and-access/dominio/modelos';
+export type { Rol, Sesion } from '../../contexts/identity-and-access/dominio/modelos';
 interface SessionApi {
     sesion: Sesion | null;
     entrar: (s: Sesion) => void;

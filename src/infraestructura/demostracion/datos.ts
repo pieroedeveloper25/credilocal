@@ -1,5 +1,7 @@
 import { IMAGEN_PREDETERMINADA } from './imagenPredeterminada';
-import type { Cliente, Producto, Compra } from '../../dominio/modelos';
+import type { Compra } from '../../contexts/credit-origination/dominio/modelos';
+import type { Cliente } from '../../contexts/customer-management/dominio/modelos';
+import type { Producto } from '../../contexts/product-catalog/dominio/modelos';
 export const CLIENTES: Cliente[] = [
     { id: 0, nombre: 'Taller Mecánico San Cristóbal E.I.R.L.', tipoDoc: 'RUC', doc: '20601234567', limite: '5000', deuda: '0', diaCorte: 20, diaPago: 26, plazo: 6, moneda: 'PEN', tipoC: 'Nominal', valC: '24', capC: 'Diaria', tipoM: 'Nominal', valM: '15', capM: 'Diaria' },
     { id: 1, nombre: 'Transportes & Servicios Integrales SAC', tipoDoc: 'RUC', doc: '20551122334', limite: '10000', deuda: '0', diaCorte: 20, diaPago: 26, plazo: 6, moneda: 'PEN', tipoC: 'Efectiva', valC: '30', capC: 'Diaria', tipoM: 'Nominal', valM: '36', capM: 'Diaria' },

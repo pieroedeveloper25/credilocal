@@ -51,3 +51,34 @@ test('el servicio genera el corte sin navegador ni sesión y evita duplicados',a
  try{reloj='2026-09-20T23:59';assert.ok(await app.revisarCortes()>0);assert.equal(await app.revisarCortes(),0);}
  finally{await app.cerrar();}
 });
+
+test('el catálogo rechaza imagen ausente, vacía, incompatible y superior a 2 MB sin guardar cambios',async()=>{
+ const app=await entorno();
+ try{
+  const api=app.sesion();const inicio=await entrar(api);
+  const producto={...inicio.datos.datos.productos[0],sku:'REV-IMAGEN',nombre:'Producto de prueba'};
+  const cantidad=inicio.datos.datos.productos.length;
+  for(const imagen of [undefined,'','data:image/png;base64,','data:image/svg+xml;base64,AAAA','data:image/png;base64,!!!!','data:image/png;base64,'+'A'.repeat(2796204)]){
+   const respuesta=await op(api,'GUARDAR PRODUCTO',{registro:{...producto,imagen}});
+   assert.equal(respuesta.codigo,400);assert.match(respuesta.datos.error,/imagen|2 MB/);
+  }
+  const datos=(await api('estado')).datos;
+  assert.equal(datos.productos.length,cantidad);
+  assert.ok(!datos.productos.some(p=>p.sku==='REV-IMAGEN'));
+ }finally{await app.cerrar();}
+});
+
+test('la imagen del producto se conserva al editar y después de reiniciar SQLite',async()=>{
+ const carpeta=mkdtempSync(resolve('pruebas','base-prueba-')),ruta=resolve(carpeta,'catalogo.sqlite');
+ let app=await entorno(ruta);
+ try{
+  const api=app.sesion();const inicio=await entrar(api);
+  const producto={...inicio.datos.datos.productos[0],sku:'REV-PERSISTENCIA',nombre:'Producto con imagen'};
+  assert.equal((await op(api,'GUARDAR PRODUCTO',{registro:producto})).codigo,200);
+  assert.equal((await op(api,'GUARDAR PRODUCTO',{registro:{...producto,nombre:'Producto editado',credito:'1250'}})).codigo,200);
+  await app.cerrar();app=await entorno(ruta);
+  const segunda=app.sesion();await entrar(segunda);
+  const guardado=(await segunda('estado')).datos.productos.find(p=>p.sku===producto.sku);
+  assert.equal(guardado.nombre,'Producto editado');assert.equal(guardado.credito,'1250');assert.equal(guardado.imagen,producto.imagen);
+ }finally{await app.cerrar();}
+});
