@@ -975,3 +975,5 @@ a { text-underline-offset: 3px; }
   .tema-anim, .tema-anim * { transition: none !important; }
 }
 .side .foot > div:last-child { gap: 8px; }
+
+.imagen-credito { display:block; max-width:160px; margin-top:6px; font-size:10px; line-height:1.4; overflow-wrap:anywhere; color:var(--muted); }
