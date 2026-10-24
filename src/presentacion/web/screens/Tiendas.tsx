@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useStore } from '../store';
 import { Field, Head, Badge } from '../components/ui';
-import type { Tienda } from '../../../dominio/modelos';
+import type { Tienda } from '../../../contexts/identity-and-access/dominio/modelos';
 const nueva = (): Tienda => ({ id: -1, ruc: '', razon: '', nombre: '', giro: '', direccion: '', telefono: '', correo: '', activa: true });
 export function Tiendas() {
     const { tiendas, guardarTienda } = useStore();

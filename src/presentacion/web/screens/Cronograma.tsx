@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { convertirTasas, fechaValida, fmtFecha, generarCronogramaFrances, parseFecha } from '../../../dominio/credito/motor';
 import { leer, num, pct7, sol } from '../format';
 import { Badge, Field, Head, Money, Tick, idx, tipId } from '../components/ui';
 import { ChevronDownIcon } from '../components/Icons';
-import { horaValida } from '../../../dominio/validaciones';
+import { convertirTasas, generarCronogramaFrances } from '../../../contexts/credit-origination/dominio/motor';
+import { fechaValida, fmtFecha, parseFecha } from '../../../shared/dominio/fechas';
+import { horaValida } from '../../../shared/dominio/validaciones';
 const INICIAL = { cap: '4500', tea: '30', n: '3', fc: '2026-09-15', dc: '20', dp: '26', hora: '12:00', horaCorte: '23:59' };
 type F = typeof INICIAL;
 function validar(f: F): string {

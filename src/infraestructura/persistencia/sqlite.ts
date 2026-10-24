@@ -1,8 +1,8 @@
-import type { RepositorioDatos } from '../../aplicacion/puertos';
 import { DatabaseSync } from 'node:sqlite';
 import { mkdirSync } from 'node:fs';
 import { dirname } from 'node:path';
-import type { Datos } from '../../dominio/modelos';
+import type { RepositorioDatos } from '../../shared/aplicacion/puertos';
+import type { Datos } from '../../shared/dominio/datos';
 const listas = ['tiendas', 'cuentas', 'clientes', 'productos', 'ventas', 'obligaciones', 'listados', 'pagos', 'auditoria'] as const;
 /** Cada colección lógica se conserva en una tabla, con sus objetos decimales intactos. */
 export function abrirBase(ruta: string): RepositorioDatos {

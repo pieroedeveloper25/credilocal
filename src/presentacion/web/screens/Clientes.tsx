@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { useStore } from '../store';
-import { D, convertirTasas } from '../../../dominio/credito/motor';
 import { pct7 } from '../format';
 import { Field, Head, CreditMeter, Badge } from '../components/ui';
-import type { Cliente } from '../../../dominio/modelos';
+import { convertirTasas } from '../../../contexts/credit-origination/dominio/motor';
+import type { Cliente } from '../../../contexts/customer-management/dominio/modelos';
+import { D } from '../../../shared/dominio/decimal';
 const nuevo = (): Cliente => ({ id: -1, nombre: '', tipoDoc: 'DNI', doc: '', direccion: '', telefono: '', correo: '', activo: true, horaCorte: '23:59', limite: '5000', deuda: '0', diaCorte: 20, diaPago: 26, plazo: 6, moneda: 'PEN', tipoC: 'Nominal', valC: '24', capC: 'Diaria', tipoM: 'Nominal', valM: '36', capM: 'Diaria' });
 export function Clientes() {
     const { clientes, guardarCliente, deudaDe } = useStore();

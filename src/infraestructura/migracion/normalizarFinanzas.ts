@@ -1,8 +1,9 @@
 import { IMAGEN_PREDETERMINADA } from '../demostracion/imagenPredeterminada';
 import { COMPRAS } from '../demostracion/datos';
-import type { Datos } from '../../dominio/modelos';
-import { crearObligaciones, condicionesDe, contextoListado } from '../../dominio/credito/obligaciones';
-import { convertirTasas } from '../../dominio/credito/motor';
+import { contextoListado, deudaLinea } from '../../contexts/billing-and-collections/dominio/obligaciones';
+import { convertirTasas } from '../../contexts/credit-origination/dominio/motor';
+import { condicionesDe, crearObligaciones } from '../../contexts/credit-origination/dominio/obligaciones';
+import type { Datos } from '../../shared/dominio/datos';
 /** Migración única de la demostración anterior, conservando ventas y pagos existentes. */
 export function normalizarFinanzas(d: Datos) {
     for (const p of d.productos)
@@ -47,5 +48,8 @@ export function normalizarFinanzas(d: Datos) {
             if (o && fila.dias === undefined)
                 Object.assign(fila, contextoListado(o, fila.concepto, l.corte.slice(0, 10)));
         }
+    // El saldo comprometido de BC 2 se reconstruye desde las obligaciones al iniciar.
+    for (const c of d.clientes)
+        c.saldoComprometido = deudaLinea(d, c).toFixed(2);
     return d;
 }

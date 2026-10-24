@@ -1,10 +1,12 @@
 import { useMemo, useState } from 'react';
 import { useSesion } from '../session';
 import { useStore } from '../store';
-import { D, convertirTasas, fmtFecha, generarCronogramaFrances, parseFecha } from '../../../dominio/credito/motor';
 import { num, sol as dinero } from '../format';
 import { Badge, Field, Head, Money, idx } from '../components/ui';
 import { ChevronDownIcon } from '../components/Icons';
+import { convertirTasas, generarCronogramaFrances } from '../../../contexts/credit-origination/dominio/motor';
+import { D } from '../../../shared/dominio/decimal';
+import { fmtFecha, parseFecha } from '../../../shared/dominio/fechas';
 /** Vista del cliente: el cronograma de su propio financiamiento en cuotas, si tiene uno. Solo lectura. */
 export function MiCronograma() {
     const { sesion } = useSesion();

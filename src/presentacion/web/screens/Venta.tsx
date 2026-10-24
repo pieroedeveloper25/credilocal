@@ -1,9 +1,12 @@
 import { useMemo, useState } from 'react';
 import { useStore } from '../store';
-import { D, Decimal, compraPermitida, convertirTasas, fechaValida, fmtFecha, generarCronogramaFrances, lineaDisponible, liquidarFinDeMes, parseFecha, r2 } from '../../../dominio/credito/motor';
 import { leer, num, pct7, sol as dinero } from '../format';
-import { activo, horaValida, relojPeru } from '../../../dominio/validaciones';
 import { CreditMeter, Field, Head, Seg, Tick, idx, tipId } from '../components/ui';
+import { convertirTasas, generarCronogramaFrances, liquidarFinDeMes } from '../../../contexts/credit-origination/dominio/motor';
+import { compraPermitida, lineaDisponible } from '../../../contexts/customer-management/dominio/lineaCredito';
+import { D, Decimal, r2 } from '../../../shared/dominio/decimal';
+import { fechaValida, fmtFecha, parseFecha, relojPeru } from '../../../shared/dominio/fechas';
+import { activo, horaValida } from '../../../shared/dominio/validaciones';
 interface Item {
     sku: string;
     cant: string;

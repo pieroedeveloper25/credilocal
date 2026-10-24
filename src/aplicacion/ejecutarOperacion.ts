@@ -1,12 +1,15 @@
-import type { Cliente, Datos, Producto, Sesion, Tienda, Venta } from '../dominio/modelos';
-import { exigir } from '../dominio/validaciones';
-import type { CreadorDeCuentas } from './puertos';
-import { guardarTienda } from './administracion/guardarTienda';
-import { guardarCliente } from './administracion/guardarCliente';
-import { guardarProducto } from './administracion/guardarProducto';
-import { registrarCompra } from './credito/registrarVenta';
-import { registrarCobranza } from './cobranza/registrarPago';
-import { emitirCorte } from './cortes/emitirCorte';
+import { registrarCobranza, registrarCompra } from './casosDeUso';
+import { emitirCorte } from '../contexts/billing-and-collections/aplicacion/emitirCorte';
+import type { Venta } from '../contexts/credit-origination/dominio/modelos';
+import { guardarCliente } from '../contexts/customer-management/aplicacion/guardarCliente';
+import type { Cliente } from '../contexts/customer-management/dominio/modelos';
+import { guardarTienda } from '../contexts/identity-and-access/aplicacion/guardarTienda';
+import type { Sesion, Tienda } from '../contexts/identity-and-access/dominio/modelos';
+import { guardarProducto } from '../contexts/product-catalog/aplicacion/guardarProducto';
+import type { Producto } from '../contexts/product-catalog/dominio/modelos';
+import type { CreadorDeCuentas } from '../shared/aplicacion/puertos';
+import type { Datos } from '../shared/dominio/datos';
+import { exigir } from '../shared/dominio/validaciones';
 export type Operacion = {
     accion: 'GUARDAR TIENDA';
     pedido: {

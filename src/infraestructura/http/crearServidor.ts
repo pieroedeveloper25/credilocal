@@ -1,13 +1,13 @@
 import { createServer } from 'node:http';
-import { exigir } from '../../dominio/validaciones';
 import { type Operacion } from '../../aplicacion/ejecutarOperacion';
 import { datosVisibles } from '../../aplicacion/datosVisibles';
 import { registrarOperacion } from '../../aplicacion/registrarOperacion';
-import type { CreadorDeCuentas } from '../../aplicacion/puertos';
-import type { crearUnidadDeTrabajo } from '../../aplicacion/unidadDeTrabajo';
-import { crearSesiones } from '../seguridad/sesiones';
 import { enviar, cuerpo } from './json';
 import { servirArchivos } from './archivosEstaticos';
+import { crearSesiones } from '../../contexts/identity-and-access/infraestructura/sesiones';
+import type { CreadorDeCuentas } from '../../shared/aplicacion/puertos';
+import type { crearUnidadDeTrabajo } from '../../shared/aplicacion/unidadDeTrabajo';
+import { exigir } from '../../shared/dominio/validaciones';
 export function crearServidor(trabajo: ReturnType<typeof crearUnidadDeTrabajo>, cuentas: CreadorDeCuentas, ahora: () => string) {
     const sesiones = crearSesiones();
     const servidor = createServer(async (req, res) => {

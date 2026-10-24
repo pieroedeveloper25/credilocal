@@ -1,5 +1,5 @@
-import { Decimal } from '../../dominio/credito/motor';
 /** Formato de presentación: 1,217.72 */
+import { Decimal } from '../../shared/dominio/decimal';
 export const num = (d: Decimal): string => {
     const [ent, dec] = d.toFixed(2).split('.');
     return `${ent.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}.${dec}`;
