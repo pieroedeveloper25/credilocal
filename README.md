@@ -88,9 +88,10 @@ npm test
 npm run test:arquitectura
 npm run build
 npm run test:api
+npm run test:demo
 ```
 
-La versión corregida se comprobó con **50 pruebas unitarias, 4 de arquitectura y 8 de API**. Las pruebas HTTP usan bases ficticias separadas en `pruebas/base-prueba-*`. También se verificaron la carga PNG, el reemplazo JPG, la edición, la recarga y la vista móvil en navegador.
+La versión corregida se comprobó con **50 pruebas unitarias, 4 de arquitectura, 8 de API y 4 de demostración**. Las pruebas HTTP usan bases ficticias separadas en `pruebas/base-prueba-*`. También se verificaron la carga PNG, el reemplazo JPG, la edición, la recarga y la vista móvil en navegador.
 
 `build` comprueba tipos del navegador y la lógica compartida, compila React y empaqueta Node con esbuild. Los adaptadores Node se ejercitan mediante integración; el proyecto no configura una comprobación completa de sus tipos con tsc.
 
@@ -131,3 +132,46 @@ npm start
 ```
 
 No se migran bases personales automáticamente. Mantener los respaldos fuera del repositorio.
+
+## Base de demostración poblada
+
+Después de instalar y compilar, generar una base independiente y ejecutarla:
+
+```bash
+npm run demo:crear
+npm run demo:iniciar
+```
+
+Abrir http://127.0.0.1:3000. Se utilizan `datos/demo.sqlite` y los recursos locales de `recursos/demo`. La base normal `datos/credilocal.sqlite` permanece separada. El comando de carga **rechaza sobrescribir un archivo existente** y el inicio de demostración rechaza bases normales.
+
+Para repetir el ensayo en otra base y con una fecha de referencia fija:
+
+```bash
+npm run demo:crear -- --destino datos/ensayo2.sqlite --fecha 2026-10-24
+npm run demo:iniciar -- datos/ensayo2.sqlite
+```
+
+La fecha debe estar entre 2026-10-01 y la fecha actual de Lima; no se cambia el reloj ni se registran operaciones futuras. La base se crea con fechas relativas a esa referencia; posteriormente la aplicación liquida según la fecha consultada. Las contraseñas ficticias son `credi2026`.
+
+La carga contiene dos tiendas, tres clientes por tienda, cuatro productos reales por tienda y nueve cuentas. Conserva los casos históricos de 1214.88 y 1579.41 como operaciones registradas. El catálogo nuevo sirve para nuevas ventas; no cambia esos importes históricos.
+
+| Perfil de demostración | Correo | Recorrido |
+|---|---|---|
+| Comercio del taller | admin@sutaller.pe | Casos históricos y cuatro productos automotrices |
+| Cliente del caso a fin de mes | cliente.taller@credilocal.test | Compra histórica de 1200.00 |
+| Comercio de la bodega | bodega@credilocal.test | Tres clientes y cuatro productos de abarrotes |
+| Cliente Ana | ana@credilocal.test | Pago completo dentro del plazo, sin mora |
+| Cliente Pedro | pedro@credilocal.test | Compra vencida con mora |
+| Cliente Rosa | rosa@credilocal.test | Línea de 80.00, capital pendiente 72.80 y disponible 7.20 |
+
+También siguen funcionando el superadministrador y los otros dos accesos de cliente del taller indicados arriba. Los datos de tiendas, personas, documentos, precios a crédito y operaciones son ficticios.
+
+Con Rosa, intentar vender dos bolsas de arroz a crédito permite demostrar el rechazo por línea insuficiente. Para un pago, utilizar el total de la liquidación de la fecha elegida: el servidor rechaza parciales y excedentes. Ana tiene un pago por 55.65 registrado el día 26 del mes anterior a la referencia; los cortes y la mora de Pedro se pueden consultar en ese período y el actual.
+
+### Productos precios e imágenes de referencia
+
+El catálogo usa productos reales de Castrol, Prestone, WD-40, Paisana, Primor, Tottus y Don Vittorio. Las referencias de precio regular, posibles promociones, URL y método de consulta del 24/10/2026 están en [catalogo.json](recursos/demo/catalogo.json). Son referencias observadas, algunas de fichas oficiales indexadas; no se promete precio vigente en carrito ni disponibilidad. El precio a crédito es un supuesto propio de la tienda ficticia, no una financiación ofrecida por el vendedor consultado.
+
+Las fotografías de Wikimedia Commons son **referenciales de la categoría o marca**, no necesariamente del envase o presentación exactos. No se copiaron fotografías comerciales sin permiso. Sus autores, fuentes, licencias Creative Commons o declaración de dominio público están en [imagenes.json](recursos/demo/imagenes.json), y las atribuciones se muestran junto a las imágenes del catálogo. Las miniaturas se descargaron de Commons sin cambios locales; cada fotografía conserva su licencia indicada, incluidas las condiciones de compartir igual cuando correspondan.
+
+Los JPG y PNG están en `recursos/demo/productos`. La carga los convierte a Base64 y los guarda con cada producto en SQLite; usar la demo no necesita descargar de nuevo las fotos ni consultar los precios por internet. Si se reemplaza una foto desde el formulario, se elimina la atribución de la foto anterior.

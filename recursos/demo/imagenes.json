@@ -1,0 +1,66 @@
+{
+  "arroz.jpg": {
+    "autor": "Sanjay Acharya",
+    "licencia": "CC BY-SA 3.0",
+    "urlLicencia": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "urlFuente": "https://commons.wikimedia.org/wiki/File:WhiteRice.jpg",
+    "urlArchivo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/WhiteRice.jpg/500px-WhiteRice.jpg",
+    "nota": "Imagen referencial de la categoría o marca; puede mostrar otra presentación. Miniatura de Wikimedia Commons, sin cambios locales."
+  },
+  "azucar.jpg": {
+    "autor": "The original uploader was Genesis12 at English Wikipedia.",
+    "licencia": "CC BY 2.5",
+    "urlLicencia": "https://creativecommons.org/licenses/by/2.5",
+    "urlFuente": "https://commons.wikimedia.org/wiki/File:Brown_sugar_crystals.JPG",
+    "urlArchivo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/Brown_sugar_crystals.JPG/500px-Brown_sugar_crystals.JPG",
+    "nota": "Imagen referencial de la categoría o marca; puede mostrar otra presentación. Miniatura de Wikimedia Commons, sin cambios locales."
+  },
+  "pasta.jpg": {
+    "autor": "Nnaluci",
+    "licencia": "CC BY-SA 3.0",
+    "urlLicencia": "https://creativecommons.org/licenses/by-sa/3.0",
+    "urlFuente": "https://commons.wikimedia.org/wiki/File:Spaghettoni.jpg",
+    "urlArchivo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Spaghettoni.jpg/500px-Spaghettoni.jpg",
+    "nota": "Imagen referencial de la categoría o marca; puede mostrar otra presentación. Miniatura de Wikimedia Commons, sin cambios locales."
+  },
+  "castrol.jpg": {
+    "autor": "Frankieleon",
+    "licencia": "CC BY 2.0",
+    "urlLicencia": "https://creativecommons.org/licenses/by/2.0",
+    "urlFuente": "https://commons.wikimedia.org/wiki/File:Castrol_gtx_motoroil.jpg",
+    "urlArchivo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/Castrol_gtx_motoroil.jpg/500px-Castrol_gtx_motoroil.jpg",
+    "nota": "Imagen referencial de la categoría o marca; puede mostrar otra presentación. Miniatura de Wikimedia Commons, sin cambios locales."
+  },
+  "prestone.jpg": {
+    "autor": "dno1967",
+    "licencia": "CC BY 2.0",
+    "urlLicencia": "https://creativecommons.org/licenses/by/2.0",
+    "urlFuente": "https://commons.wikimedia.org/wiki/File:Antifreeze.jpg",
+    "urlArchivo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Antifreeze.jpg/500px-Antifreeze.jpg",
+    "nota": "Imagen referencial de la categoría o marca; puede mostrar otra presentación. Miniatura de Wikimedia Commons, sin cambios locales."
+  },
+  "wd40-3oz.jpg": {
+    "autor": "Eva K.",
+    "licencia": "CC BY-SA 2.5",
+    "urlLicencia": "https://creativecommons.org/licenses/by-sa/2.5",
+    "urlFuente": "https://commons.wikimedia.org/wiki/File:WD-40.jpg",
+    "urlArchivo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/WD-40.jpg/500px-WD-40.jpg",
+    "nota": "Imagen referencial de la categoría o marca; puede mostrar otra presentación. Miniatura de Wikimedia Commons, sin cambios locales."
+  },
+  "wd40-11oz.jpg": {
+    "autor": "Adrian Scottow from London, England",
+    "licencia": "CC BY-SA 2.0",
+    "urlLicencia": "https://creativecommons.org/licenses/by-sa/2.0",
+    "urlFuente": "https://commons.wikimedia.org/wiki/File:WD-40_(2814356881).jpg",
+    "urlArchivo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/WD-40_%282814356881%29.jpg/500px-WD-40_%282814356881%29.jpg",
+    "nota": "Imagen referencial de la categoría o marca; puede mostrar otra presentación. Miniatura de Wikimedia Commons, sin cambios locales."
+  },
+  "aceite.png": {
+    "autor": "Itineranttrader",
+    "licencia": "Dominio público",
+    "urlFuente": "https://commons.wikimedia.org/wiki/File:OleicSunflowerOil.png",
+    "urlLicencia": "https://commons.wikimedia.org/wiki/File:OleicSunflowerOil.png#Licensing",
+    "urlArchivo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/OleicSunflowerOil.png/500px-OleicSunflowerOil.png",
+    "nota": "Imagen referencial de aceite de girasol sin envase comercial. Miniatura de Commons, sin cambios locales."
+  }
+}

@@ -10,7 +10,10 @@
     "test": "vitest run",
     "start": "node servidor-dist/main.mjs",
     "test:api": "node --test pruebas/api.test.mjs",
-    "test:arquitectura": "node --test pruebas/arquitectura.test.mjs"
+    "test:arquitectura": "node --test pruebas/arquitectura.test.mjs",
+    "demo:crear": "node servidor-dist/demo.mjs",
+    "demo:iniciar": "node scripts/iniciar-demo.mjs",
+    "test:demo": "node --test pruebas/demo.test.mjs"
   },
   "dependencies": {
     "decimal.js": "^10.4.3",

@@ -1,0 +1,155 @@
+{
+  "consultado": "2026-10-24",
+  "moneda": "PEN",
+  "criterio": "Productos reales; precios de catálogos peruanos consultados como referencia, no cotizaciones en tiempo real. El contado de la tienda ficticia toma el precio regular observado; el crédito es un supuesto de demostración, no una oferta del proveedor. Fotografías referenciales, no necesariamente del envase o presentación exacta.",
+  "productos": [
+    {
+      "tiendaId": 1,
+      "sku": "DEMO-CASTROL",
+      "nombre": "Aceite Castrol 20W-50 1 galón 3.78 L",
+      "marca": "Castrol",
+      "unidad": "GALON",
+      "descripcion": "Aceite de motor 20W-50, galón de 3.78 L. Imagen referencial de la marca, de otra presentación.",
+      "contado": "189.90",
+      "credito": "205.00",
+      "modalidad": "Ambas",
+      "archivo": "castrol.jpg",
+      "fuente": {
+        "tienda": "Sodimac Perú, vendedor Mil Estilos",
+        "url": "https://www.sodimac.com.pe/sodimac-pe/lista/CATG14284/Aceite-para-motor?f.product.brandName=castrol",
+        "precioRegular": "189.90",
+        "precioPromocionalObservado": "145.90",
+        "metodo": "catálogo oficial indexado"
+      }
+    },
+    {
+      "tiendaId": 1,
+      "sku": "DEMO-PRESTONE",
+      "nombre": "Refrigerante Prestone 33% galón 4 L",
+      "marca": "Prestone",
+      "unidad": "GALON",
+      "descripcion": "Refrigerante premezclado al 33%, galón de 4 L. Imagen referencial de la marca; envase puede variar.",
+      "contado": "55.00",
+      "credito": "60.00",
+      "modalidad": "Ambas",
+      "archivo": "prestone.jpg",
+      "fuente": {
+        "tienda": "Lubrigo Perú",
+        "url": "https://lubrigo.pe/prestone-refrigerante-33-antifreeze-coolant/",
+        "precioRegular": "55.00",
+        "precioPromocionalObservado": "45.00",
+        "metodo": "ficha y catálogo del vendedor"
+      }
+    },
+    {
+      "tiendaId": 1,
+      "sku": "DEMO-WD40-3",
+      "nombre": "Lubricante WD-40 3 oz",
+      "marca": "WD-40",
+      "unidad": "UNIDAD",
+      "descripcion": "Lubricante multiusos en aerosol de 3 oz. Fotografía referencial de otra presentación de WD-40.",
+      "contado": "22.00",
+      "credito": "24.00",
+      "modalidad": "Ambas",
+      "archivo": "wd40-3oz.jpg",
+      "fuente": {
+        "tienda": "Promart Perú",
+        "url": "https://www.promart.pe/l/wd-40",
+        "precioRegular": "22.00",
+        "metodo": "catálogo del vendedor"
+      }
+    },
+    {
+      "tiendaId": 1,
+      "sku": "DEMO-WD40-11",
+      "nombre": "Lubricante multiusos WD-40 11 oz",
+      "marca": "WD-40",
+      "unidad": "UNIDAD",
+      "descripcion": "Lubricante multiusos en aerosol de 11 oz. Fotografía referencial de la marca; envase puede variar.",
+      "contado": "39.90",
+      "credito": "43.00",
+      "modalidad": "Ambas",
+      "archivo": "wd40-11oz.jpg",
+      "fuente": {
+        "tienda": "Promart Perú",
+        "url": "https://www.promart.pe/l/wd-40",
+        "precioRegular": "39.90",
+        "metodo": "catálogo del vendedor"
+      }
+    },
+    {
+      "tiendaId": 2,
+      "sku": "DEMO-ARROZ",
+      "nombre": "Arroz extra Paisana bolsa 1 kg",
+      "marca": "Paisana",
+      "unidad": "UNIDAD",
+      "descripcion": "Arroz extra, bolsa de 1 kg. Fotografía referencial de granos de arroz; no muestra el envase comercial.",
+      "contado": "4.80",
+      "credito": "5.20",
+      "modalidad": "Fin de mes",
+      "archivo": "arroz.jpg",
+      "fuente": {
+        "tienda": "Tottus Perú",
+        "url": "https://www.tottus.com.pe/tottus-pe/lista/CATG16815/Arroz",
+        "precioRegular": "4.80",
+        "metodo": "catálogo oficial indexado; página directa sujeta a disponibilidad"
+      }
+    },
+    {
+      "tiendaId": 2,
+      "sku": "DEMO-ACEITE",
+      "nombre": "Aceite vegetal Primor Premium 900 mL",
+      "marca": "Primor",
+      "unidad": "UNIDAD",
+      "descripcion": "Aceite vegetal, botella de 900 mL. Fotografía referencial de aceite; no muestra el envase Primor.",
+      "contado": "11.00",
+      "credito": "11.80",
+      "modalidad": "Ambas",
+      "archivo": "aceite.png",
+      "fuente": {
+        "tienda": "Tottus Perú",
+        "url": "https://www.tottus.com.pe/tottus-pe/lista/CATG23097/Promociones",
+        "precioRegular": "11.00",
+        "precioPromocionalObservado": "9.70",
+        "metodo": "catálogo oficial indexado"
+      }
+    },
+    {
+      "tiendaId": 2,
+      "sku": "DEMO-AZUCAR",
+      "nombre": "Azúcar rubia Tottus bolsa 5 kg",
+      "marca": "Tottus",
+      "unidad": "UNIDAD",
+      "descripcion": "Azúcar rubia, bolsa de 5 kg. Fotografía referencial de cristales de azúcar; no muestra el envase comercial.",
+      "contado": "20.90",
+      "credito": "22.50",
+      "modalidad": "Fin de mes",
+      "archivo": "azucar.jpg",
+      "fuente": {
+        "tienda": "Tottus Perú",
+        "url": "https://www.tottus.com.pe/tottus-pe/lista/CATG23097/Promociones",
+        "precioRegular": "20.90",
+        "precioPromocionalObservado": "15.20",
+        "metodo": "catálogo oficial indexado"
+      }
+    },
+    {
+      "tiendaId": 2,
+      "sku": "DEMO-PASTA",
+      "nombre": "Spaghetti Don Vittorio twopack 2 x 500 g",
+      "marca": "Don Vittorio",
+      "unidad": "PAQUETE",
+      "descripcion": "Paquete de dos bolsas de spaghetti de 500 g. Fotografía referencial de pasta; no muestra el envase comercial.",
+      "contado": "6.20",
+      "credito": "6.80",
+      "modalidad": "Fin de mes",
+      "archivo": "pasta.jpg",
+      "fuente": {
+        "tienda": "Metro Perú",
+        "url": "https://www.metro.pe/twopack-spaghetti-don-vittorio-500g-1047948/p",
+        "precioRegular": "6.20",
+        "metodo": "precio de ficha oficial indexada; puede variar según ubicación"
+      }
+    }
+  ]
+}
